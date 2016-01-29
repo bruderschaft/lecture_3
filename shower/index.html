@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class="slide" id="cover">
+		<h2>Frontend</h2>
+		<p>Максим Павлов</p>
+		<img src="pictures/cover.jpg" alt="" class="cover">
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+			#cover h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				}
+			#cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+				}
+				#cover p a {
+					color:#FFF;
+					}
+		</style>
+	</section>
+	<!-- <section class="slide">
+		<h2>План занятия 1/2</h2>
+		<ol>
+			<li>О себе: имя-путь-текущая ситуация</li>
+			<li>Чьи стили побеждают: инлайн-импортант-атрибуты</li>
+			<li>Вынос в отдельный файл и линковка</li>
+			<li>Чьи стили побеждают: id, классы, специфичность, теги</li>
+			<li>БЭМ!!!</li>
+		</ol>
+	</section>
+	<section class="slide">
+		<h2>План занятия 2/2</h2>
+		<ol>
+			<li>Таблички vs. блоки</li>
+			<li>Блоки vs. строки vs. инлайн-блоки</li>
+			<li>float и поток форматирования</li>
+			<li>Bootstrap: путь лентяя - колонки, кнопки, формы - для админок ок</li>
+		</ol>
+	</section> -->
+	<section class="slide">
+		<h2>О себе</h2>
+		<ul>
+			<li>закончил технопарк</li>
+			<li>2 года во фронтенде почте@mail.ru</li>
+			<li>пол-года - менеджер</li>
+			<li>сейчас - опять фронтендер</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Блоки vs. строки vs. инлайн-блоки 1/2</h2>
+		<p>Блоки</p>
+		<ol>
+			<li>div</li>
+			<li>form</li>
+			<li>h1,...,h6</li>
+			<li>hr</li>
+			<li>p</li>
+			<li>table</li>
+		</ol>
+	</section>
+	<section class="slide">
+		<h2>Блоки vs. строки vs. инлайн-блоки 1/2</h2>
+		<p>Строки</p>
+		<ol>
+			<li>img</li>
+			<li>span</li>
+			<li>a</li>
+		</ol>
+	</section>
+	<section class="slide">
+		<h2>Блоки vs. строки vs. инлайн-блоки 2/2</h2>
+		<ol>
+			<li>расположение друг за другом</li>
+			<li>ширина и высота применяется только для блочных или инлайн-блоков</li>
+		</ol>
+	</section>
+	<section class="slide">
+		<h2>Поток форматирования</h2>
+		<p>Свойства, вырывающие из потока форматирования</p>
+		<ol>
+			<li>float</li>
+			<li>postition: absolute, fixed</li>
+			<li>https://habrahabr.ru/post/136622/</li>
+			<li>http://habrahabr.ru/post/136588/</li>
+		</ol>
+	</section>
+	<section class="slide">
+		<h2>Чьи стили побеждают vol.1</h2>
+		<pre>
+			<code class="mark">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt;</code>
+			<code class="mark">&lt;style type=&quot;text/css&quot;&gt;</code>
+			<code>.my-class {</code>
+			<code>color: green;</code>
+			<code>}</code>
+			<code>&lt;/style&gt;</code>
+			<code class="mark">&lt;div style=&quot;color: black&quot;&gt;&lt;/div&gt;</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Чьи стили побеждают vol.1</h2>
+		<ol>
+			<li>!important</li>
+		</ol>
+		<pre>
+			<code>.my-class {</code>
+			<code class="mark">color: red <mark>!important</mark></code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Чьи стили побеждают: серебряная пуля</h2>
+		<pre>
+			<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt;</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Чьи стили побеждают vol.2</h2>
+		<pre>
+			<code>*              {} /* a=0 b=0 c=0 -> специфичность = 0   */</code>
+			<code>li             {} /* a=0 b=0 c=1 -> специфичность = 1   */</code>
+			<code>li:first-line  {} /* a=0 b=0 c=2 -> специфичность = 2   */</code>
+			<code>ul li          {} /* a=0 b=0 c=2 -> специфичность = 2   */</code>
+			<code>ul ol+li       {} /* a=0 b=0 c=3 -> специфичность = 3   */</code>
+			<code>ul li.red      {} /* a=0 b=1 c=2 -> специфичность = 12  */</code>
+			<code>li.red.level   {} /* a=0 b=2 c=1 -> специфичность = 21  */</code>
+			<code>#t34           {} /* a=1 b=0 c=0 -> специфичность = 100 */</code>
+			<code>#content #wrap {} /* a=2 b=0 c=0 -> специфичность = 200 */</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Чьи стили побеждают vol.2: БЭМ</h2>
+		<ol>
+			<li>переиспользуемость</li>
+			<li>никакой специфичности</li>
+			<li>понятность кода</li>
+		</ol>
+	</section>
+	<section class="slide">
+		<h2>БЭМ</h2>
+		<ul>
+			<li>Блок (search-block)</li>
+			<li>Элемент (search-block__input, search-block__button)</li>
+			<li>Модификатор (search-block__button_big, search-block__button_floating)</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Ошибки</h2>
+		<pre>
+			<code>&lt;link href='https://fonts.googleapis.com/...' rel='stylesheet' type='text/css'&gt; </code>
+			<code>&lt;img src="http://www.burgerclub.ru/..." width="30%"&gt;</code>
+			<code>&lt;/div class="row"&gt;</code>
+			<code>&lt;/div class="row"&gt;</code>
+		</pre>
+		<img src="pictures/tabs.png">
+	</section>
+	<section class="slide">
+		<h2>Таблички vs. блоки</h2>
+		<ul>
+			<li>Таблицы используем для таблиц</li>
+			<li>Блоки используем для всего, что не таблица</li>
+			<li>Современно</li>
+			<li>перенести какой-то блок - легко</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Bootstrap</h2>
+		<ul>
+			<li>строки</li>
+			<li>колонки</li>
+			<li>http://bootstrap-3.ru/index.php</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Консоль разработчика</h2>
+		<ul>
+			<li>вкладки</li>
+			<li>элементы - редактирование css</li>
+			<li>сеть - что не загрузилось</li>
+			<li>chrome map to file system resource</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Формы</h2>
+		<ul>
+			<li>что необходимо для отправки форму: action, method, name</li>
+		</ul>
+	</section>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
